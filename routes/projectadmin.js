@@ -98,7 +98,6 @@ router.post('/', async function (req, res, next) {
                 let leaves = airdrops.map(x => sha3_256.sha3_256(x.serialize(project.id)));
                 let tree = new MerkleTree(leaves, sha3_256.sha3_256, {sortPairs: true});
                 root = tree.getRoot().toString('hex');
-                console.log(root)
                 airdrops = airdrops.map(x => {
                     return {
                         address: x.address_string(),
