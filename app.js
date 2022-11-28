@@ -17,8 +17,6 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 app.all('*', function (req, res, next) {
-    console.log(req.headers.origin)
-    console.log(req.environ)
     res.header("Access-Control-Allow-Origin", req.headers.origin);
     // res.header("Access-Control-Allow-Origin", '*');
     res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");

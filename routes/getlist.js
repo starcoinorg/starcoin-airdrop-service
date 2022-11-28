@@ -40,7 +40,6 @@ router.get('/', async function (req, res, next) {
                 ]
             })
         } else if (req.query.addr) {
-            console.log(req.query.project)
             let airdrop_record = []
             airdrop_record = await Airdrop_records.findAll(
                 {

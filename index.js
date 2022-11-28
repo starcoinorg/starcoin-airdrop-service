@@ -3,7 +3,7 @@ import db from "./lib/db/index.js"
 import http from "http";
 import debug from "debug";
 
-await db.sequelize.sync().then(r => console.log('链接成功'));
+await db.sequelize.sync().then(r => console.log('Connect Successful'));
 
 let port = normalizePort(process.env.PORT || '4000');
 app.set('port', port);
