@@ -8,7 +8,6 @@ import {MerkleTree} from 'merkletreejs';
 import sha3_256 from 'js-sha3';
 import {Airdrop_records} from "../model/airdrop_records.js";
 import {admin} from "../lib/admin.js";
-import {contract_address} from "../lib/contract.js";
 
 const router = express.Router();
 
@@ -41,7 +40,7 @@ router.post('/', async function (req, res, next) {
             if (!pk || !await verify(pk.substring(2), body.data, body.signature.nonce, body.signature.address, body.signature.chainId, body.signature.signature, body.data.chain)) {
                 throw "Not Admin"
             }
-            owner_address = contract_address
+            owner_address = body.data.contract
         }
 
         let csv = body.data.csv;
