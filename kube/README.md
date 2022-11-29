@@ -18,6 +18,14 @@ or
 
 kubectl get pods|grep 'starcoin-airdrop-service-deployment' |grep Running |grep -v grep |awk -F' ' '{print $1}' | xargs kubectl logs -f
 
-## stop the worker
+## start service
 
-kubectl scale --replicas=0 -f ./starcoin-airdrop-service-deployment.yaml
+kubectl apply -f ./service-starcoin-airdrop-service.yaml
+
+## check service
+
+kubectl get services
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+starcoin-airdrop-service LoadBalancer xxxx xxx.elb.amazonaws.com 80:4000/TCP 4m48s
+
+# cname https://api-airdrop.starcoin.org to ab517df8eb84a441dac9560542696a10-111151260.ap-northeast-1.elb.amazonaws.com

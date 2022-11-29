@@ -19,13 +19,13 @@ spec:
           image: starcoin/starcoin-airdrop-service:0.1.0
           env:
             - name: STARCOIN_AIRDROP_SERVICE_MYSQL_HOST
-              value: "sh-cynosdbmysql-grp-84j7gw56.sql.tencentcdb.com"
+              value: "starcoin-db-2.czftx6muneg7.ap-northeast-1.rds.amazonaws.com"
             - name: STARCOIN_AIRDROP_SERVICE_MYSQL_PORT
-              value: "22633"
+              value: "3306"
             - name: STARCOIN_AIRDROP_SERVICE_MYSQL_DB
-              value: "aptos_airdrop_test"
+              value: "airdrop"
             - name: STARCOIN_AIRDROP_SERVICE_MYSQL_USER
-              value: "starcoin_airdrop"
+              value: "starcoin"
             - name: STARCOIN_AIRDROP_SERVICE_MYSQL_PWD
               valueFrom:
                 secretKeyRef:
