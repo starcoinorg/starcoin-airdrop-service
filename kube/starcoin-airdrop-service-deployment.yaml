@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: starcoin-airdrop-service-deployment
+  labels:
+    app: starcoin-airdrop-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: starcoin-airdrop-service
+  template:
+    metadata:
+      labels:
+        app: starcoin-airdrop-service
+    spec:
+      containers:
+        - name: starcoin-airdrop-service
+          image: starcoin/starcoin-airdrop-service:0.1.0
+          env:
+            - name: STARCOIN_AIRDROP_SERVICE_MYSQL_HOST
+              value: "sh-cynosdbmysql-grp-84j7gw56.sql.tencentcdb.com"
+            - name: STARCOIN_AIRDROP_SERVICE_MYSQL_PORT
+              value: "22633"
+            - name: STARCOIN_AIRDROP_SERVICE_MYSQL_DB
+              value: "aptos_airdrop_test"
+            - name: STARCOIN_AIRDROP_SERVICE_MYSQL_USER
+              value: "starcoin_airdrop"
+            - name: STARCOIN_AIRDROP_SERVICE_MYSQL_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pwd
+                  key: password
