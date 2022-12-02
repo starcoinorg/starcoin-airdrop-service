@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: starcoin-airdrop-service
-          image: starcoin/starcoin-airdrop-service:0.1.0
+          image: starcoin/starcoin-airdrop-service:0.1.1
           env:
             - name: STARCOIN_AIRDROP_SERVICE_MYSQL_HOST
               value: "starcoin-db-2.czftx6muneg7.ap-northeast-1.rds.amazonaws.com"
